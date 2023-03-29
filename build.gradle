@@ -5,17 +5,20 @@ subprojects {
     java.toolchain.languageVersion = JavaLanguageVersion.of(17)
     java.withSourcesJar()
     java.withJavadocJar()
-        
+
     jar {
         from(rootProject.file("LICENSE")) {
-            rename { "${it}_${mod_name}" }
+            rename { "${it}_${artifact_name}" }
+        }
+        if (project.name.startsWith("Config")) {
+            from(project.file("../../LICENSE_Caricodec"))
         }
         manifest {
             attributes([
-                'Specification-Title'     : mod_name,
+                'Specification-Title'     : project.properties.mod_name,
                 'Specification-Vendor'    : mod_author,
                 'Specification-Version'   : project.jar.archiveVersion,
-                'Implementation-Title'    : project.name,
+                'Implementation-Title'    : project.properties.mod_name,
                 'Implementation-Version'  : project.jar.archiveVersion,
                 'Implementation-Vendor'   : mod_author,
                 'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
@@ -28,7 +31,11 @@ subprojects {
 
     sourcesJar {
         from(rootProject.file("LICENSE")) {
-            rename { "${it}_${mod_name}" }
+            rename { "${it}_${artifact_name}" }
+        }
+        if (project.name.startsWith("Config")) {
+            from(project.file("LICENSE_Caricodec"))
+            from(project.file("../README.md"))
         }
     }
 

@@ -1,0 +1,7 @@
+[submodule "Greenhouse-Config"]
+	path = Config
+	url = git@github.com:GreenhouseModding/Greenhouse-Config.git
+	branch = 1.19.4
+[submodule "Config"]
+	path = Config
+	url = git@github.com:GreenhouseModding/Greenhouse-Config.git

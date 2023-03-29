@@ -16,5 +16,20 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'MultiLoader'
-include("Common", "Fabric", "Forge")
+rootProject.name = 'Greenhouse Libraries'
+
+/*
+include("Config-Core-Common", "Config-Core-Fabric", "Config-Core-Forge",
+        "Config-Api-Common", "Config-Api-Fabric", "Config-Api-Forge",
+        "Config-Common", "Config-Fabric", "Config-Forge")
+
+rootProject.children.each { child -> {
+    Set<String> splitName = child.name.split("-")
+    if (splitName[1] == 'Core' || splitName[1] == 'Api') {
+        child.projectDir = new File(child.name.replace("-", "/"))
+    } else {
+        child.projectDir = new File(splitName[0] + "/Production/" + splitName[1])
+    }
+}}
+
+ */
