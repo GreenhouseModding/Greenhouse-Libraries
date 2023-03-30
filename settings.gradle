@@ -18,18 +18,6 @@ pluginManagement {
 
 rootProject.name = 'Greenhouse Libraries'
 
-/*
-include("Config-Core-Common", "Config-Core-Fabric", "Config-Core-Forge",
-        "Config-Api-Common", "Config-Api-Fabric", "Config-Api-Forge",
-        "Config-Common", "Config-Fabric", "Config-Forge")
-
-rootProject.children.each { child -> {
-    Set<String> splitName = child.name.split("-")
-    if (splitName[1] == 'Core' || splitName[1] == 'Api') {
-        child.projectDir = new File(child.name.replace("-", "/"))
-    } else {
-        child.projectDir = new File(splitName[0] + "/Production/" + splitName[1])
-    }
-}}
-
- */
+include(":Config:Common:Api", ":Config:Fabric:Api", ":Config:Forge:Api",
+        ":Config:Common:Core", ":Config:Fabric:Core", ":Config:Forge:Core",
+        ":Config:Common", ":Config:Fabric", ":Config:Forge")
